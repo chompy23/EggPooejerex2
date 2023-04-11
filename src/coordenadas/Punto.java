@@ -13,57 +13,39 @@ import java.util.Scanner;
  */
 public class Punto {
 
-    private double corx;
-    private double cory;
+    private double x1;
+    private double y1;
+    private double x2;
+    private double y2;
 
     public Punto() {
     }
 
-    public Punto(double corx, double cory) {
-        this.corx = corx;
-        this.cory = cory;
+    public Punto(double x1, double y1, double x2, double y2) {
+        this.x1 = x1;
+        this.y1 = y1;
+        this.x2 = x2;
+        this.y2 = y2;
     }
 
     /**
-     *  En esta Función determino los dos puntos, utilizando solo dos atributos
+     * En esta Función determino los dos puntos, instanciando dos objetos
+     *
      * @return
      */
-    public double[][] CrearPunto() {
+    public void CrearPunto() {
         Scanner leer = new Scanner(System.in);
-        double[][] CrearPunto = new double[2][2];
-        for (int i = 0; i < 2; i++) {
-            if (i == 0) {
-                System.out.println(" Ingrese la primer coordena x,y ");
-                corx = leer.nextDouble();
-                CrearPunto[i][i] = corx;
-                cory = leer.nextDouble();
-                CrearPunto[i][1] = cory;
+        System.out.println(" Ingrese las coordenadas x1,y1,x2,y2");
+        x1 = leer.nextDouble();
+        y1 = leer.nextDouble();
+        x2 = leer.nextDouble();
+        y2 = leer.nextDouble();
 
-            } else {
-                System.out.println(" Ingrese la segunda coordenada x,y ");
-                corx = leer.nextDouble();
-                CrearPunto[i][0] = corx;
-                cory = leer.nextDouble();
-                CrearPunto[i][i] = cory;
-            }
-        }
-        for (double[] ds : CrearPunto) {
-            for (double d : ds) {
-                System.out.print(" " + d);
-            }
-            System.out.println(" ");
-        }
-        return CrearPunto;
     }
-
-    /**
-     *  En este método calculo la distancia cargando los puntos. 
-     * @return
-     */
-    public double CalcularDistancia() {
-        double[][] punt = CrearPunto();
-        double distancia;
-        distancia = Math.sqrt((Math.pow(((punt[1][0])-(punt[0][0])), 2))+(Math.pow(((punt[1][1])-(punt[0][1])), 2)));
+    public double CalcularDistancia(){
+        double distancia = Math.sqrt((Math.pow((x2-x1), 2))+ (Math.pow((y2 - y1), 2)));
+    
         return distancia;
     }
+
 }

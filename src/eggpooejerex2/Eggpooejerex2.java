@@ -25,8 +25,10 @@ public class Eggpooejerex2 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        Punto coor = new Punto();
-        System.out.println((" La Distancia entre puntos es = ")+coor.CalcularDistancia());
+        Punto p1 = new Punto();
+        p1.CrearPunto();
+        System.out.println("Distancia entre puntos = "+p1.CalcularDistancia());
+        
     }
     
 }
